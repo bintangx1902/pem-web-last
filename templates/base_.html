@@ -249,6 +249,7 @@
 
 </div>
 
+
 {% block scripts %}
 {% endblock %}
 
@@ -262,6 +263,42 @@
 <!-- Custom scripts for all pages-->
 <script src="{% static 'cs_assets/js/sb-admin-2.min.js' %}"></script>
 
+{% if messages %}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#modalMessages").modal('show')
+    })
+</script>
+
+<div class="modal fade" id="modalMessages" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalMessagesLabel">Pesan Penting!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            {% for msg in messages %}
+            {% if msg.tags == 'error' %}
+            <div class="modal-body alert-danger">
+                {{ msg }}
+            </div>
+            {% else %}
+            <div class="modal-body alert-{{ msg.tags }}">
+                {{ msg }}
+            </div>
+            {% endif %}
+
+            {% endfor %}
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
 </body>
 
 </html>

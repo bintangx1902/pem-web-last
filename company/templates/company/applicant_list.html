@@ -10,7 +10,11 @@
         <div class="col-10 pt-2 mb-4">
             <div class="card">
                 <div class="card-body text-dark">
+                    {% if item.user.first_name and item.user.last_name %}
                     <h5 class="card-title">{{ item.user.first_name }} {{ item.user.last_name }}</h5>
+                    {% else %}
+                    <h5 class="card-title">No Name</h5>
+                    {% endif %}
                     <div class="pt-2 mb-2">
                         <p><b>Date:</b>
                             {{ item.sent |  date:'l, F js o - h:iA' }}

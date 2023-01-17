@@ -57,7 +57,7 @@ INSTALLED_APPS = [
 CACHES = {
    'default': {
       'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-      'LOCATION': path.join(BASE_DIR, 'caches'),
+      'LOCATION': path.join(BASE_DIR, 'cache'),
    }
 }
 

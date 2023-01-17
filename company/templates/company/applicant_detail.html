@@ -16,6 +16,7 @@
 
         <h4>Detail | {{ app.user.first_name }} {{ app.user.last_name }}</h4>
         <p class="font-weight-bold mt-2">Dikirim pada : {{ app.sent | date:'l, F js o - h:iA' }} </p>
+        <p class="font-weight-bold mt-2">Username : {{ app.user.username }}</p>
         <hr>
         <p class="mt-2"> Username : fito123 </p>
         <p>NIK : {{ app.user.user.get_nik }}</p>
@@ -33,10 +34,12 @@
         </button>
         <br>
         <div class="button text-right mt-2">
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="{% url 'comp:accept-reject' app.code 1 %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
                 <button class="btn btn-success">Accept</button>
             </form>
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="{% url 'comp:accept-reject' app.code 0 %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
                 <button class="btn btn-danger">Reject</button>
             </form>
         </div>

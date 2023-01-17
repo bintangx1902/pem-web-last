@@ -27,7 +27,7 @@ class ComplaintList(ListView):
     model = Complaint
     context_object_name = 'items'
     template_name = get_template('list_complaint')
-    paginate_by = 2
+    paginate_by = 6
 
     def get_queryset(self):
         acc = self.request.GET.get('acc')
@@ -134,9 +134,10 @@ class ApplicantListView(ListView):
     model = JoinUs
     template_name = get_template('applicant_list')
     context_object_name = 'items'
+    paginate_by = 5
 
     def get_queryset(self):
-        return self.model.objects.filter(accepted=False)
+        return self.model.objects.filter(accepted=False, rejected=False).order_by('-sent')
 
 
 class ApplicantDetailView(DetailView):
@@ -159,14 +160,33 @@ class AcceptOrReject(View):
 
     def post(self, *args, **kwargs):
         applicant = get_object_or_404(JoinUs, code=kwargs['code'])
-        target = kwargs['target']
+        try:
+            target = int(kwargs['target'])
+        except Exception as e:
+            print(e)
+            return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
+
         if target == 1:
-            pass
+            applicant.accepted = True
+            applicant.rejected = False
+            user = applicant.user
+            user.is_staff = False
+            user.is_superuser = False
+            if hasattr(user, 'user'):
+                user.user.is_employee = True
+                user.save()
+                user.user.save()
+            else:
+                messages.error(self.request, f"{user} belum melengkapi data")
+                return redirect(reverse('comp:applicant-detail', kwargs={'code': kwargs['code']}))
+
         elif not target:
-            pass
+            applicant.accepted = False
+            applicant.rejected = True
         else:
             return HttpResponse(status=status.HTTP_405_METHOD_NOT_ALLOWED)
-        return
+        applicant.save()
+        return redirect('comp:applicant-list')
 
     @method_decorator(login_required(login_url=settings.LOGIN_URL))
     @method_decorator(

@@ -47,6 +47,7 @@ class JoinUs(models.Model):
     foto_ktp = models.ImageField(upload_to='ktp/')
     desc = RichTextField('deskripsikan diri anda !', config_name='basic')
     accepted = models.BooleanField(default=False)
+    rejected = models.BooleanField(default=False)
     sent = models.DateTimeField(auto_now_add=True)
     code = models.CharField(max_length=255)
 

@@ -5,9 +5,6 @@ app_name = 'comp'
 
 urlpatterns = [
     path('', CompanyLanding.as_view(), name='landing'),
-    path('applicant', ApplicantListView.as_view(), name='applicant-list'),
-    path('applicant/<code>', ApplicantDetailView.as_view(), name='applicant-detail'),
-    path('applicant/<code>/<target>', AcceptOrReject.as_view(), name='accept-reject'),
     path('complaint', ComplaintList.as_view(), name='unacc-complaint'),
     path('complaint/ticket_<ticket_code>', ComplaintDetail.as_view(), name='complaint-detail'),
     path('complaint/ticket_<ticket_code>/acc', accept_ticket, name='accept-ticket'),
@@ -15,6 +12,12 @@ urlpatterns = [
     path('complaint/ticket_<ticket_code>/open', OpenJob.as_view(), name='open-job'),
     path('complaint/ticket_<ticket_code>/close', CloseThisComplaint.as_view(), name='close-complaint'),
 ]
+
+urlpatterns.extend([
+    path('applicant', ApplicantListView.as_view(), name='applicant-list'),
+    path('applicant/<code>', ApplicantDetailView.as_view(), name='applicant-detail'),
+    path('applicant/<code>/<target>', AcceptOrReject.as_view(), name='accept-reject'),
+])
 
 urlpatterns.extend([
     path('complaint/job', JobListForTechnician.as_view(), name='job-list'),
