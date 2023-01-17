@@ -13,9 +13,7 @@ from .utils import *
 import stripe
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
-
-
-# stripe_id = ""
+stripe_id = ""
 
 
 def landing(request):
@@ -208,6 +206,8 @@ class CancelPaymentView(View):
         item = get_object_or_404(Complaint, ticket_code=kwargs['ticket_code'])
         item.stripe_id = stripe_id
         stripe_id = ''
+        item.is_success = False
+
         item.save()
         return render(self.request, get_template('payment-cancel'))
 

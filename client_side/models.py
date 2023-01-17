@@ -27,7 +27,6 @@ class Complaint(models.Model):
     stock_price = models.IntegerField(default=30_000, null=True, blank=True)
     tech_price = models.IntegerField(default=20_000, null=True, blank=True)
     total_price = models.IntegerField(null=True, blank=True)
-    is_paid = models.BooleanField(default=False)
     needed_tools = models.ManyToManyField(Tools, null=True, blank=True)
     ticket_code = models.CharField(max_length=32)
     stripe_id = models.CharField(max_length=255, null=True, blank=True)
