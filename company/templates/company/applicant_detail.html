@@ -1,0 +1,66 @@
+{% extends 'base_.html' %}
+
+{% block title %} Applicant - {{ app.user }} {% endblock %}
+
+{% block head %}
+<style>
+    form {
+        display: inline;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+
+        <h4>Detail | {{ app.user.first_name }} {{ app.user.last_name }}</h4>
+        <p class="font-weight-bold mt-2">Dikirim pada : {{ app.sent | date:'l, F js o - h:iA' }} </p>
+        <hr>
+        <p class="mt-2"> Username : fito123 </p>
+        <p>NIK : {{ app.user.user.get_nik }}</p>
+        <picture></picture>
+        <hr>
+        <div class="desc">
+            {{ app.desc | safe }}
+        </div>
+        <!--Modal-->
+
+        <hr>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-dark mb-4" data-toggle="modal" data-target="#exampleModalCenter">
+            Lihat KTP
+        </button>
+        <br>
+        <div class="button text-right mt-2">
+            <form action="" method="post" enctype="multipart/form-data">
+                <button class="btn btn-success">Accept</button>
+            </form>
+            <form action="" method="post" enctype="multipart/form-data">
+                <button class="btn btn-danger">Reject</button>
+            </form>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Images Detail</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="{{ app.foto_ktp.url }}" alt="foto ktp {{ app.user }}" class="img-fluid">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

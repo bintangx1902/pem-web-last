@@ -1,0 +1,782 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Landing page {% endblock %}
+
+{% block content %}
+<section id="hero" class="d-flex align-items-center justify-content-center">
+    <div class="container" data-aos="fade-up">
+
+        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
+            <div class="col-xl-6 col-lg-8">
+                <h1>Hikari Service<span></span></h1>
+                <h2>Provider of Electricity and Solar Panel Services</h2>
+            </div>
+        </div>
+
+        <div class="row gy-4 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
+            <h3 class="text-white">Official Partnerships</h3>
+            <div class="col-xl-2 col-md-4">
+                <div class="icon-box">
+                    <!-- <i class="ri-store-line"></i> -->
+                    <img src="{% static 'landing_assets/assets/img/hero/tokopedia.png' %}" width="80"
+                         alt="Tokopedia"/></a>
+                    <div class="pt-4"><h3><a href="https://www.tokopedia.com/">Tokopedia</a></h3></div>
+                </div>
+            </div>
+            <div class="col-xl-2 col-md-4">
+                <div class="icon-box">
+                    <!-- <i class="ri-calendar-todo-line"></i> -->
+                    <img src="{% static 'landing_assets/assets/img/hero/itpln.png' %}" width="95" alt="ITPLN"/></a>
+                    <div class="pt-2"><h3><a href="https://itpln.ac.id/id/">Institut Teknologi PLN</a></h3></div>
+                </div>
+            </div>
+            <div class="col-xl-2 col-md-4">
+                <div class="icon-box">
+                    <!-- <i class="ri-paint-brush-line"></i> -->
+                    <img src="{% static 'landing_assets/assets/img/hero/envision.png' %}" width="98"
+                         alt="Envision"/></a>
+                    <div class="pt-2"><h3><a href="https://www.envision-group.com/">Envision</a></h3></div>
+                </div>
+            </div>
+            <div class="col-xl-2 col-md-4">
+                <div class="icon-box">
+                    <!-- <i class="ri-database-2-line"></i> -->
+                    <img src="{% static 'landing_assets/assets/img/hero/indonesiapower.png' %}" width="130"
+                         alt="Indonesia Power"/></a>
+                    <div class="pt-3"><h3><a href="https://www.plnindonesiapower.co.id/">PT Indonesia Power</a></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section><!-- End Hero -->
+
+<main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+                <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+                    <img src="{% static 'landing_assets/assets/img/about.jpg' %}" class="img-fluid" alt="">
+                </div>
+                <!--===== overview of the company ======-->
+                <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right"
+                     data-aos-delay="100">
+                    <h3>About our Company</h3>
+                    <p class="fst-italic">
+                        More Than 20 Years Hikari Service Since it Was First Established In Jakarta in 1998 And Has
+                        Experience
+                        Being a Service Provider of Electricity and Solar
+                        Panels in Indonesia to Abroad
+                    </p>
+                    <p>
+                        PT Hikari service is a company
+                        which is engaged in providing services
+                        solar power plant.
+                        Established in 2021, to be precise 9
+                        November 2021 in West Jakarta.
+                    </p>
+                    <p>
+                        We have experience and knowledge
+                        about solar power plants and have worked
+                        with companies in Indonesia,
+                    </p>
+                    <p>
+                        PT Hikari is one of the best solar power plant service provider companies
+                        not only installation, PT Hikari offers maintenance and repair services.
+                        maintenance and repair services.
+                    </p>
+                    <p>
+                        Our company is focused on solar power plant services, which is one of our differentiators from
+                        other
+                        companies in Indonesia.
+                        one of the differentiators with other companies in the power plant service provider
+                        We are more focused and can provide the best for all forms of services needed
+                    </p>
+                </div>
+                <!--===== last overview of the company ======-->
+            </div>
+
+        </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients">
+        <div class="container" data-aos="zoom-in">
+
+            <div class="clients-slider swiper">
+                <div class="swiper-wrapper align-items-center">
+                    <div class="swiper-slide"><img src="{% static 'landing_assets/assets/img/clients/client-1.png' %}"
+                                                   class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="{% static 'landing_assets/assets/img/clients/client-2.png' %}"
+                                                   class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="{% static 'landing_assets/assets/img/clients/client-3.png' %}"
+                                                   class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="{% static 'landing_assets/assets/img/clients/client-4.png' %}"
+                                                   class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="{% static 'landing_assets/assets/img/clients/client-5.png' %}"
+                                                   class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="{% static 'landing_assets/assets/img/clients/client-6.png' %}"
+                                                   class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="{% static 'landing_assets/assets/img/clients/client-7.png' %}"
+                                                   class="img-fluid" alt=""></div>
+                    <div class="swiper-slide"><img src="{% static 'landing_assets/assets/img/clients/client-8.png' %}"
+                                                   class="img-fluid" alt=""></div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+    </section><!-- End Clients Section -->
+
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+        <div class="container" data-aos="fade-up">
+
+
+            <div class="section-title">
+                <h2>Sponsorship</h2>
+                <p>Sponsorship</p>
+            </div>
+
+            <div class="row">
+                <div class="image col-lg-6" style='background-image: url("{% static 'landing_assets/assets/img/features.jpg' %}");' data-aos="fade-right">
+            </div>
+            <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
+                <div class="icon-box mt-5 mt-lg-0" data-aos="zoom-in" data-aos-delay="150">
+                    <img src="{% static 'landing_assets/assets/img/clients/client-1.png' %}" class="img-fluid ms-5"
+                         width="100px" alt="">
+                    <h4>MYOB Company</h4>
+                    <p>MYOB is an Australian multinational corporation that provides tax software, accounting and other
+                        business services to small and medium-sized businesses. It is owned by American private equity
+                        KKR.</p>
+                </div>
+                <div class="icon-box mt-5" data-aos="zoom-in" data-aos-delay="150">
+                    <img src="{% static 'landing_assets/assets/img/clients/client-2.png' %}" class="img-fluid ms-5"
+                         width="100px" alt="">
+                    <h4>BELIMO Company</h4>
+                    <p>BELIMO Holding AG, an international group of companies, is located in Hinwil, Switzerland. The
+                        company
+                        develops, manufactures and markets actuators to control heating, ventilation and air
+                        conditioning
+                        systems.</p>
+                </div>
+                <div class="icon-box mt-5" data-aos="zoom-in" data-aos-delay="150">
+                    <img src="{% static 'landing_assets/assets/img/clients/client-5.png' %}" class="img-fluid ms-5"
+                         width="100px" alt="">
+                    <h4>AMAZON Company</h4>
+                    <p>Amazon is the largest Internet company by revenue in the world. It is the largest private
+                        employer in
+                        the United States and one of [[the most valuable companies on Amazon having the highest global
+                        brand
+                        rankings. Magazine, BrandZ (July 1, 2020).</p>
+                </div>
+                <div class="icon-box mt-5" data-aos="zoom-in" data-aos-delay="150">
+                    <img src="{% static 'landing_assets/assets/img/clients/client-4.png' %}" class="img-fluid ms-5"
+                         width="100px" alt="">
+                    <h4>LILY Company</h4>
+                    <p>s a public company from the United States engaged in the healthcare industry. At the moment,
+                        Eli Lilly and Company's headquarters are located in the Lilly Corporate Center, Indianapolis,
+                        Indiana,
+                        and
+                        led by CEO John C. Lechleiter.</p>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </section><!-- End Features Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Services</h2>
+                <p>Check our Services</p>
+            </div>
+
+            <div class="row justify-content-center">
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in"
+                     data-aos-delay="200">
+                    <div class="icon-box">
+                        <div class="icon"><img src="{% static 'landing_assets/assets/img/wire_3.png' %}" alt=""></div>
+                        <h4><a href="">Cable </a></h4>
+                        <p>Accepts Residential Wiring, And Accepts Repairs To Household And Corporate Cables</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in"
+                     data-aos-delay="300">
+                    <div class="icon-box">
+                        <div class="icon"><img src="{% static 'landing_assets/assets/img/solar-panel.png' %}" alt="">
+                        </div>
+                        <h4><a href="">Solar Panel</a></h4>
+                        <p>Receive Damage And Repair Of Solar Panels And Replacement Of Solar Panel Batteries</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="icon-box">
+                        <div class="icon"><img src="{% static 'landing_assets/assets/img/wifi-router.png' %}" alt="">
+                        </div>
+                        <h4><a href="">Wifi-Router</a></h4>
+                        <p>Accept Installation And Damage To Home And Corporate Wifi Routers</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="icon-box">
+                        <div class="icon"><img src="{% static 'landing_assets/assets/img/electric-generator.png' %}"
+                                               alt=""></div>
+                        <h4><a href="">Generator</a></h4>
+                        <p>Fulfill Generator Repair And Generator Maintenance,
+                            And Generator Rental</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+        <div class="container" data-aos="zoom-in">
+
+            <div class="text-center">
+                <h3>Call To Action</h3>
+                <p> Ayo gunakan Jasa Kami Untuk Memonitoring Masalah Anda!!!</p>
+                <a class="cta-btn" href="{% url 'client:create-complaint' %}">Try Now</a>
+            </div>
+
+        </div>
+    </section><!-- End Cta Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="portfolio">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Portfolio</h2>
+                <p>Check our Portfolio</p>
+            </div>
+
+            <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-wrap">
+                        <img src="{% static 'landing_assets/assets/img/portfolio/apps1.jpeg' %}" class="img-fluid"
+                             alt="">
+                        <div class="portfolio-info">
+                            <h4>Project</h4>
+                            <p>Bisnis</p>
+                            <div class="portfolio-links">
+                                <a href="{% static 'landing_assets/assets/img/portfolio/apps1.jpeg' %}"
+                                   data-gallery="portfolioGallery"
+                                   class="portfolio-lightbox"
+                                   title="Bisnis"><i class="bx bx-plus"></i></a>
+                                <a href="" title="Bisnis"><i class="bx bx-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <div class="portfolio-wrap">
+                        <img src="{% static 'landing_assets/assets/img/portfolio/apps2.jpg' %}" class="img-fluid"
+                             alt="">
+                        <div class="portfolio-info">
+                            <h4>Project</h4>
+                            <p>Solar Panel</p>
+                            <div class="portfolio-links">
+                                <a href="{% static 'landing_assets/assets/img/portfolio/apps2.jpg' %}"
+                                   data-gallery="portfolioGallery"
+                                   class="portfolio-lightbox"
+                                   title="Solar Panel"><i class="bx bx-plus"></i></a>
+                                <a href="" title="Solar Panel"><i class="bx bx-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-wrap">
+                        <img src="{% static 'landing_assets/assets/img/portfolio/apps3.jpg' %}" class="img-fluid"
+                             alt="">
+                        <div class="portfolio-info">
+                            <h4>Project</h4>
+                            <p>Wifi-Router</p>
+                            <div class="portfolio-links">
+                                <a href="{% static 'landing_assets/assets/img/portfolio/apps3.jpg' %}"
+                                   data-gallery="portfolioGallery"
+                                   class="portfolio-lightbox"
+                                   title="Wifi-Routers"><i class="bx bx-plus"></i></a>
+                                <a href="" title="Wifi-Routers"><i class="bx bx-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                    <div class="portfolio-wrap">
+                        <img src="{% static 'landing_assets/assets/img/portfolio/apps4.jpg' %}" class="img-fluid"
+                             alt="">
+                        <div class="portfolio-info">
+                            <h4>Project</h4>
+                            <p>Cable</p>
+                            <div class="portfolio-links">
+                                <a href="{% static 'landing_assets/assets/img/portfolio/apps4.jpg' %} data-gallery="
+                                   portfolioGallery"
+                                class="portfolio-lightbox"
+                                title="Cable"><i class="bx bx-plus"></i></a>
+                                <a href="" title="Cable"><i class="bx bx-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <div class="portfolio-wrap">
+                        <img src="{% static 'landing_assets/assets/img/portfolio/apps5.jpg' %}" class="img-fluid"
+                             alt="">
+                        <div class="portfolio-info">
+                            <h4>Project</h4>
+                            <p>Solar Panel</p>
+                            <div class="portfolio-links">
+                                <a href="{% static 'landing_assets/assets/img/portfolio/apps5.jpg' %}"
+                                   data-gallery="portfolioGallery"
+                                   class="portfolio-lightbox"
+                                   title="Solar Panel"><i class="bx bx-plus"></i></a>
+                                <a href="" title="Solar Panel"><i class="bx bx-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                    <div class="portfolio-wrap">
+                        <img src="{% static 'landing_assets/assets/img/portfolio/apps6.jpg' %}" class="img-fluid"
+                             alt="">
+                        <div class="portfolio-info">
+                            <h4>Project</h4>
+                            <p>SPKLU</p>
+                            <div class="portfolio-links">
+                                <a href="{% static 'landing_assets/assets/img/portfolio/apps6.jpg' %}"
+                                   data-gallery="portfolioGallery"
+                                   class="portfolio-lightbox"
+                                   title="SPKLU"><i class="bx bx-plus"></i></a>
+                                <a href="" title="SPKLU"><i class="bx bx-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                    <div class="portfolio-wrap">
+                        <img src="{% static 'landing_assets/assets/img/portfolio/apps7.jpg' %}" class="img-fluid"
+                             alt="">
+                        <div class="portfolio-info">
+                            <h4>Project</h4>
+                            <p>Generator</p>
+                            <div class="portfolio-links">
+                                <a href="{% static 'landing_assets/assets/img/portfolio/apps7.jpg' %}"
+                                   data-gallery="portfolioGallery"
+                                   class="portfolio-lightbox"
+                                   title="Generator"><i class="bx bx-plus"></i></a>
+                                <a href="" title="Generator"><i class="bx bx-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+                    <div class="portfolio-wrap">
+                        <img src="{% static 'landing_assets/assets/img/portfolio/apps8.jpg' %}" class="img-fluid"
+                             alt="">
+                        <div class="portfolio-info">
+                            <h4>Project</h4>
+                            <p>Cable Fiber Optic</p>
+                            <div class="portfolio-links">
+                                <a href="{% static 'landing_assets/assets/img/portfolio/apps8.jpg' %}"
+                                   data-gallery="portfolioGallery"
+                                   class="portfolio-lightbox"
+                                   title="Cabel Fiber Optic"><i class="bx bx-plus"></i></a>
+                                <a href="" title="Cabel Fiber Optic"><i
+                                        class="bx bx-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                    <div class="portfolio-wrap">
+                        <img src="{% static 'landing_assets/assets/img/portfolio/apps9.jpg' %}" class="img-fluid"
+                             alt="">
+                        <div class="portfolio-info">
+                            <h4>Project</h4>
+                            <p>Repair</p>
+                            <div class="portfolio-links">
+                                <a href="{% static 'landing_assets/assets/img/portfolio/apps9.jpg' %}"
+                                   data-gallery="portfolioGallery"
+                                   class="portfolio-lightbox"
+                                   title="Repair"><i class="bx bx-plus"></i></a>
+                                <a href="" title="Repair"><i class="bx bx-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Portfolio Section -->
+
+    <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row no-gutters">
+                <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start"
+                     data-aos="fade-right" data-aos-delay="100"></div>
+                <div class="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch" data-aos="fade-left"
+                     data-aos-delay="100">
+                    <div class="content d-flex flex-column justify-content-center">
+                        <h3>Company Achievements</h3>
+                        <p>
+
+                            Since the Establishment of this Company,There Have Been Many Awards Received, Both on a
+                            National and
+                            International Scale.
+                            The Following are the Achievements we Have Obtained
+                        </p>
+                        <div class="row">
+                            <div class="col-md-6 d-md-flex align-items-md-stretch">
+                                <div class="count-box">
+                                    <i class="bi bi-emoji-smile"></i>
+                                    <span data-purecounter-start="0" data-purecounter-end="65"
+                                          data-purecounter-duration="2"
+                                          class="purecounter"></span>
+                                    <p><strong>Happy Clients</strong> consequuntur voluptas nostrum aliquid ipsam
+                                        architecto ut.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 d-md-flex align-items-md-stretch">
+                                <div class="count-box">
+                                    <i class="bi bi-journal-richtext"></i>
+                                    <span data-purecounter-start="0" data-purecounter-end="85"
+                                          data-purecounter-duration="2"
+                                          class="purecounter"></span>
+                                    <p><strong>Projects</strong> adipisci atque cum quia aspernatur totam laudantium et
+                                        quia dere tan
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 d-md-flex align-items-md-stretch">
+                                <div class="count-box">
+                                    <i class="bi bi-clock"></i>
+                                    <span data-purecounter-start="0" data-purecounter-end="35"
+                                          data-purecounter-duration="4"
+                                          class="purecounter"></span>
+                                    <p><strong>Years of experience</strong> aut commodi quaerat modi aliquam nam ducimus
+                                        aut voluptate
+                                        non vel</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 d-md-flex align-items-md-stretch">
+                                <div class="count-box">
+                                    <i class="bi bi-award"></i>
+                                    <span data-purecounter-start="0" data-purecounter-end="20"
+                                          data-purecounter-duration="4"
+                                          class="purecounter"></span>
+                                    <p><strong>Awards</strong> rerum asperiores dolor alias quo reprehenderit eum et
+                                        nemo pad der</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- End .content-->
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End Counts Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials">
+        <div class="container" data-aos="zoom-in">
+
+            <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-item">
+                            <img src="{% static 'landing_assets/assets/img/testimonials/ganajr.jpeg' %}"
+                                 class="testimonial-img" alt="">
+                            <h3>Ganjar Pranowo</h3>
+                            <h4>Gubernur Jawa Tengah</h4>
+                            <p>
+                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                Saya telah menggunakan jasa hikari pada awal periode saya untuk kebutuhan dan kebutuhan
+                                operasional proyek pribadi dan proyek nasional yang saya tanganiSaya telah menggunakan
+                                layanan hikari pada awal periode saya untuk kebutuhan dan kebutuhan operasional proyek
+                                pribadi dan proyek nasional yang saya tangani ditangani
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-item">
+                            <img src="{% static 'landing_assets/assets/img/testimonials/nadim.jpeg' %}"
+                                 class="testimonial-img" alt="">
+                            <h3>Nadiem Makarim</h3>
+                            <h4>Mentri Education</h4>
+                            <p>
+                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                Awalnya saya menggunakan Hiraki Service, solar panel yang saya gunakan di villa saya
+                                rusak, dan ternyata Hiraki Service memiliki teknisi yang handal dalam memperbaiki solar
+                                panel dan saya sangat suka dengan kinerja Hiraki Service dan para pelayannya.
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-item">
+                            <img src="{% static 'landing_assets/assets/img/testimonials/lunamaya.jpeg' %}"
+                                 class="testimonial-img" alt="">
+                            <h3>Luna Maya</h3>
+                            <h4>Actress</h4>
+                            <p>
+                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                Terima kasih Layanan Hirakari. Anda telah bekerja dengan saya selama 2 tahun terakhir,
+                                saya harap kami akan terus bekerja sama, semoga berhasil
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-item">
+                            <img src="{% static 'landing_assets/assets/img/testimonials/jason.jpeg' %}"
+                                 class="testimonial-img" alt="">
+                            <h3>Jason Statham</h3>
+                            <h4>Artist</h4>
+                            <p>
+                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                For the past 2 months I have always used Hikari Service to service my forest house which
+                                uses solar panel electricity, Thank you Hikari Service
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div><!-- End testimonial item -->
+
+                    <div class="swiper-slide">
+                        <div class="testimonial-item">
+                            <img src="{% static 'landing_assets/assets/img/testimonials/ken.jpeg' %}"
+                                 class="testimonial-img" alt="">
+                            <h3>Ken Block</h3>
+                            <h4>Rally Driver</h4>
+                            <p>
+                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                Thank you very much Hikari Service for being part of us, it's a pleasure to do business
+                                with you always success for all of us
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            </p>
+                        </div>
+                    </div><!-- End testimonial item -->
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+    </section><!-- End Testimonials Section -->
+
+    <!-- ======= Team Section ======= -->
+    <section id="team" class="team">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Team</h2>
+                <p>Check our Team</p>
+            </div>
+
+            <div class="row justify-content-center">
+
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                    <div class="member" data-aos="fade-up" data-aos-delay="100">
+                        <div class="member-img">
+                            <img src="{% static 'landing_assets/assets/img/team/bintang.jpeg' %}" class="img-fluid" alt="">
+                            <div class="social">
+                                <a href=""><i class="bi bi-twitter"></i></a>
+                                <a href=""><i class="bi bi-facebook"></i></a>
+                                <a href=""><i class="bi bi-instagram"></i></a>
+                                <a href=""><i class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>Raden Ronggo Bintang P</h4>
+                            <span>Back-End Developer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                    <div class="member" data-aos="fade-up" data-aos-delay="200">
+                        <div class="member-img">
+                            <img src="{% static 'landing_assets/assets/img/team/team-1.jpeg' %}" class="img-fluid" alt="">
+                            <div class="social">
+                                <a href=""><i class="bi bi-twitter"></i></a>
+                                <a href="https://www.facebook.com/gorbon.anah.5"><i class="bi bi-facebook"></i></a>
+                                <a href="https://www.instagram.com/fitomarcel/"><i class="bi bi-instagram"></i></a>
+                                <a href="https://www.linkedin.com/in/fitto-martcellindo-6042a6262/"><i
+                                        class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>Fitto Martcellindo </h4>
+                            <span>Front-End Developer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                    <div class="member" data-aos="fade-up" data-aos-delay="300">
+                        <div class="member-img">
+                            <img src="{% static 'landing_assets/assets/img/team/team-3.jpg' %}" class="img-fluid" alt="">
+                            <div class="social">
+                                <a href="https://twitter.com/wayanchandra04?t=Kbxz-woZtqFecvn_oHbadg&s=08"><i
+                                        class="bi bi-twitter"></i></a>
+                                <a href="https://www.facebook.com/iwayan.ardikachandra.5?mibextid=ZbWKwL"><i
+                                        class="bi bi-facebook"></i></a>
+                                <a href="https://www.instagram.com/wayanchandraa/"><i class="bi bi-instagram"></i></a>
+                                <a href="https://www.linkedin.com/in/i-wayan-ardika-chandra-45b24b222"><i
+                                        class="bi bi-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h4>I Wayan Ardika Chandra</h4>
+                            <span>Front-End Developer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+                        <div class="member" data-aos="fade-up" data-aos-delay="400">
+                            <div class="member-img">
+                                <img src="{% static 'landing_assets/assets/img/team/rozan.jpeg' %}" class="img-fluid" alt="">
+                                <div class="social">
+                                    <a href=""><i class="bi bi-twitter"></i></a>
+                                    <a href=""><i class="bi bi-facebook"></i></a>
+                                    <a href=""><i class="bi bi-instagram"></i></a>
+                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                            <div class="member-info">
+                                <h4>Irham Ahmad Rozan</h4>
+                                <span>Accountant</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch justify-content-center">
+                        <div class="member justify-content-center" data-aos="fade-up" data-aos-delay="400">
+                            <div class="member-img justify-content-center">
+                                <img src="{% static 'landing_assets/assets/img/team/Annisa.jpeg' %}" class="img-fluid" alt="">
+                                <div class="social justify-content-center">
+                                    <a href=""><i class="bi bi-twitter"></i></a>
+                                    <a href=""><i class="bi bi-facebook"></i></a>
+                                    <a href=""><i class="bi bi-instagram"></i></a>
+                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                                </div>
+                            </div>
+                            <div class="member-info">
+                                <h4>Annisa Azzahir</h4>
+                                <span>Accountant</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End Team Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Become the Technician</h2>
+                <p>Join Us</p>
+            </div>
+
+            <div>
+                <iframe style="border:0; width: 100%; height: 270px;"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.7198906230515!2d106.7242570146856!3d-6.168251095534248!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f788f60e492d%3A0x8b5ed89a85136510!2sInstitut%20Teknologi%20PLN!5e0!3m2!1sid!2sid!4v1673030424262!5m2!1sid!2sid"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <div class="row mt-5 justify-content-center items-center">
+
+                <div class="col-lg-4 ml-auto">
+                    <div class="info">
+                        <div class="address">
+                            <i class="bi bi-geo-alt"></i>
+                            <h4>Location:</h4>
+                            <p>Menara PLN, Jl. Lkr. Luar Barat, RT.1/RW.1, Duri Kosambi, Kecamatan Cengkareng, Kota
+                                Jakarta Barat, Daerah Khusus Ibukota Jakarta 11750</p>
+                        </div>
+
+                        <div class="email">
+                            <i class="bi bi-envelope"></i>
+                            <h4>Email:</h4>
+                            <p>HikariService@gmail.com</p>
+                        </div>
+
+                        <div class="phone">
+                            <i class="bi bi-phone"></i>
+                            <h4>Call:</h4>
+                            <p>+62895612455958</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-4 mt-5 mt-lg-0 mr-auto">
+
+                    <form action="{% url 'client:join-us' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% load crispy_forms_tags %}
+                        {{ form.media }}
+                        {{ form | crispy }}
+                        <div class="text-center">
+                            <button class="btn btn-warning">Join Us</button>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Contact Section -->
+
+</main><!-- End #main -->
+
+{% endblock %}

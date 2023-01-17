@@ -1,0 +1,103 @@
+{% extends 'base_.html' %}
+
+{% block title %} Landing Page CS {% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+<h1 class="h3 mb-4 text-gray-800">Dashboard</h1>
+<br>
+
+<div class="row justify-content-center">
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            Earnings (Week)
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            Earnings (Monthly)
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            Earnings (Annual)
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">$3,000,000</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Illustrations -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">About Hikari Service</h6>
+    </div>
+    <div class="card-body">
+        <div class="text-center">
+            <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
+                 src="{% static 'cs_assets/img/renewable.png' %}" alt="...">
+        </div>
+        <p>One of the best solar power plant service provider and electrician companies.
+            Not only installation <a target="_blank" rel="nofollow" href="../Home_Dashboard/index.html">PT
+                Hikari</a>, offers maintenance and repair services.
+            maintenance and repair services.</p>
+        <a target="_blank" rel="nofollow" href="../Home/index.html">Browse More &rarr;</a>
+    </div>
+</div>
+
+
+<!-- Page Wrapper -->
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+
+
+{% endblock %}

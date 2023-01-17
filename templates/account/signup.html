@@ -1,0 +1,87 @@
+{% extends 'account/base.html' %}
+
+{% load l10n %}
+{% load i18n %}
+{% load static %}
+
+{% block title %} Register {% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6 col-12 fxt-bg-color">
+        <div class="fxt-content">
+            <div class="fxt-header">
+                <ul>
+                    {% for msg in messages %}
+                    <li class="form-control alert-{{ msg.tags }}">{{ msg }}</li>
+                    {% endfor %}
+                </ul>
+                <a href="{{ account_login }}" class="fxt-logo"><img src="{% static 'login_assets/img/logo-27.png' %}"
+                                                                    alt="Logo"></a>
+                <div class="fxt-page-switcher">
+                    <a href="{{ account_login }}" class="switcher-text1">Log In</a>
+                    <a href="{{ account_signup }}" class="switcher-text1 active">Register</a>
+                </div>
+            </div>
+            <div class="fxt-form">
+                <h2>Register</h2>
+                <p>Create an account free and enjoy it</p>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <div class="fxt-transformY-50 fxt-transition-delay-1">
+                            <input type="text" class="form-control" name="username" placeholder="Username"
+                                   maxlength="150" autofocus autocomplete="username" id="id_username"
+                                   required>
+                            <i class="flaticon-user"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="fxt-transformY-50 fxt-transition-delay-2">
+                            <input type="email" class="form-control" name="email" placeholder="Email Address"
+                                   id="id_email" autocomplete="email" required>
+                            <i class="flaticon-envelope"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="fxt-transformY-50 fxt-transition-delay-3">
+                            <input type="password" class="form-control" name="password1" placeholder="Password"
+                                   id="id_password1" autocomplete="new-password" required>
+                            <i class="flaticon-padlock"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="fxt-transformY-50 fxt-transition-delay-3">
+                            <input type="password" class="form-control" name="password2" placeholder="Password (Again)"
+                                   id="id_password2" autocomplete="new-password" required>
+                            <i class="flaticon-padlock"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="fxt-transformY-50 fxt-transition-delay-4">
+                            <button type="submit" class="fxt-btn-fill">Register</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="fxt-footer">
+                <ul class="fxt-socials">
+                    <li class="fxt-facebook fxt-transformY-50 fxt-transition-delay-5"><a href="#" title="Facebook"><i
+                            class="fab fa-facebook-f"></i></a></li>
+                    <li class="fxt-twitter fxt-transformY-50 fxt-transition-delay-6"><a href="#" title="twitter"><i
+                            class="fab fa-twitter"></i></a></li>
+                    <li class="fxt-google fxt-transformY-50 fxt-transition-delay-7"><a href="#" title="google"><i
+                            class="fab fa-google-plus-g"></i></a></li>
+                    <li class="fxt-linkedin fxt-transformY-50 fxt-transition-delay-8"><a href="#" title="linkedin"><i
+                            class="fab fa-linkedin-in"></i></a></li>
+                    <li class="fxt-pinterest fxt-transformY-50 fxt-transition-delay-8">
+                        <a href="#" title="pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-12 fxt-none-767 fxt-bg-img"
+         data-bg-image="{% static 'login_assets/img/figure/bg-login1.jpg' %}"></div>
+</div>
+{% endblock %}

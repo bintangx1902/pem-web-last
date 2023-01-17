@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% load l10n %}
+
+{% block title %} Create Complaint {% endblock %}
+
+{% block content %}
+
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex align-items-center justify-content-center">
+    <div class="container" data-aos="fade-up">
+
+        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
+            <div class="col-xl-6 col-lg-8">
+                <h1>Complaint<span>.</span></h1>
+                <h2>Write Your Complaint To Us <a href="#contact">Below.</a> This Column Can Be Used To Submit
+                    Questions,
+                    Suggestions, And Complaints Related To Information Services.</h2>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- End Hero -->
+
+<main id="main">
+
+    <!-- ======= Contact Section ======= -->
+    <section class="contact" id="contact">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Complaint</h2>
+                <p>Write Some Complaint</p>
+            </div>
+
+            <div class="row justify-content-center">
+
+
+                <!--=====  form complaint -->
+                <div class="col-lg-8">
+
+                    <form action="{% url 'client:create-complaint' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% load crispy_forms_tags %}
+                        {{ form.media }}
+                        {{ form | crispy }}
+                        <div class="text-left mt-4">
+                            <button class="btn btn-warning">Send Messages</button>
+                        </div>
+                    </form>
+
+                </div>
+                <!--==== last form complaint ====-->
+
+            </div>
+
+        </div>
+    </section><!-- End Contact Section -->
+
+</main><!-- End #main -->
+{% endblock %}

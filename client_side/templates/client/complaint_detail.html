@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+
+{% block title %} Content - Details {% endblock %}
+
+{% block head %}
+<script src="https://js.stripe.com/v3/"></script>
+{% endblock %}
+
+{% block content %}
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex align-items-center justify-content-center">
+    <div class="container" data-aos="fade-up">
+
+        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
+            <div class="col-xl-6 col-lg-8">
+                <h1>Detail Complaints<span>.</span></h1>
+                <h2>
+                    Your Complaints Are a Motivation For us, So Please Support and Pray For Our Progress Together,
+                    Thank You, I
+                    Hope You Are Always Healthy</h2>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- End Hero -->
+
+<!-- MAin  -->
+<main id="main" class="justify-conten-center mt-5">
+    <div class="row mt-5 justify-content-center">
+        <div class="col-sm-10 pt-2 mb-4">
+            <div class="card">
+                <div class="card-body text-dark">
+                    <h5 class="card-title">Mohon Tenaga Untuk Pergantian Panel Surya
+                    </h5>
+                    <div class="pt-2 mb-2">
+                        <p><b>Date:</b> {{ com.created | date:'l, F js o - h:iA' }} </p>
+                    </div>
+                    <div class="pt-2 mb-2">
+                        <p><b>Address:</b> {{ com.address }}</p>
+                    </div>
+                    <div class="pt-2 mb-2">
+                        <div><b>Desc:</b>
+                            <br>
+                            {{ com.messages | safe }}
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="pt-2 mb-2">
+                        Status:
+                        {% if com.accepted %}
+                        <div class="form-control bg-warning text-black">Diterima</div>
+                        {% elif com.accepted and com.is_done %}
+                        <div class="form-control alert-success">Sudah Selesai</div>
+                        {% else %}
+                        <div class="form-control alert-danger">Belum Diterima</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="pt-2 mb-2">
+                        Harga Konsultasi: <input class="form-control" type="text" value="{{ com.stock_price }}"
+                                                 readonly>
+                    </div>
+
+                    <div class="pt-2 mb-2">
+                        Bayar Perteknisi: <input class="form-control" type="text" value="{{ com.tech_price }}" readonly>
+                    </div>
+
+                    <div class="pt-2 mb-2">
+                        Harga Lapangan:
+                        {% if not com.ground_price %}
+                        <input type="text" name="price" id="ground_price" class="form-control" readonly
+                               value="Harga Barang di Lokasi belum di tetapkan">
+                        {% else %}
+                        <input type="text" name="price" id="ground_price" class="form-control" readonly
+                               value="{{ com.ground_price }}">
+                        {% endif %}
+                    </div>
+
+                    <div class="pt-2 mb-2">
+                        {% if not com.total_price %}
+                        <input type="text" name="price" id="total_price" class="form-control" readonly
+                               value="Belum Ada Harga Total">
+                        {% else %}
+                        <input type="text" name="price" id="total_price" class="form-control" readonly
+                               value="{{ com.total_price }}">
+                        {% endif %}
+                    </div>
+
+                    {% if com.is_done and com.accepted %}
+                    <hr>
+                    <div class="card-text">
+                        <form action="{% url 'client:pay-complaint' com.ticket_code %}" method="post"
+                              enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <button class="btn btn-outline-primary">Bayar</button>
+                        </form>
+                    </div>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- batas -->
+
+    <!-- Card 1-->
+    <div class="row justify-content-center mb-4">
+
+        <div class="col-10 pt-2">
+            <div class="card">
+                <div class="card-body text-dark">
+                    <h5 class="card-title">Customer Service</h5>
+                    <hr>
+
+                    <div class="pt-2 mb-2">
+                        Nama Lengkap: {{ com.cs.first_name }} {{ com.cs.last_name }}
+                    </div>
+
+
+                    <a href="#" class="btn btn-outline-success mb-4 mt-3"> <i class="fa-brands fa-whatsapp"></i>
+                        Whatsapp</a>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- End Card 1-->
+
+    <!-- Card 2-->
+
+
+    <div class="row mb-5 justify-content-center mx-auto">
+        <div class="col-10">
+            <h3>Teknisi yang akan datang</h3>
+        </div>
+        {% for item in com.job.all %}
+        <div class="col-12 col-md-6 col-lg-4 col-xl-4">
+            <div class="card">
+                <div class="card-body text-dark">
+                    <h5 class="card-title">{{ item.user.username }}</h5>
+                    <hr>
+                    <div class="pt-2 mb-2">
+                        {{ item.user.first_name }} {{ item.user.last_name }}
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://wa.me/{{ item.user.user.wa_number }}" target="_blank"
+                       class="btn btn-outline-success"> <i class="fa-brands fa-whatsapp"></i> Whatsapp</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <!-- End Card 2-->
+</main>
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

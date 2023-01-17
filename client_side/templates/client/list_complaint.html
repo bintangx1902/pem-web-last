@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} List My Complaint {% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'landing_assets/assets/css/style1.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section id="hero" class="d-flex align-items-center justify-content-center">
+    <div class="container" data-aos="fade-up">
+
+        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
+            <div class="col-xl-6 col-lg-8">
+                <h1>See Complaint<span>.</span></h1>
+                <div id="search" class="container">
+                    <form class="row" method="get">
+                        <div class="col-10 p-0">
+                            <input type="text" name="q" id="q" class="form-control">
+                        </div>
+                        <button class="col-2 btn btn-warning"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- End Hero -->
+
+<main id="main">
+
+    <!-- Card With Navigation -->
+    <section class="light">
+        <div class="container py-2" id="list_complaint">
+            <div class="h1 text-center text-dark mb-5" id="pageHeaderTitle">Complaint List</div>
+            {% for item in items %}
+            <div class="card mb-4">
+                <div class="card-body p-5">
+                    <h5 class="card-title">{{ item.title }}</h5>
+                    <p><b>Date:</b>Created : {{ item.created | date:'l, F js o - h:iA' }}</p>
+                    <div class="card-text">
+                        {{ item.get_messages }}
+                    </div>
+                    <a href="{% url 'client:my-complaint' item.ticket_code %}" class="btn btn-warning mt-3">Read Detail</a>
+                </div>
+            </div>
+            {% endfor %}
+
+
+        </div>
+
+        <!-- Pagenation -->
+        {% if is_paginated %}
+        <nav class="pagination-container mt-0">
+            <div class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                <a class="pagination-newer" href="?page={{ page_obj.previous_page_number }}#list_complaint">PREV</a>
+                {% endif %}
+                <span class="pagination-inner">
+                    {% for n in page_obj.paginator.page_range %}
+                    {% if page_obj.number == n %}
+                    <a class="pagination-active active" href="?page={{ n }}#list_complaint">{{ n }}</a>
+                    {% elif n > page_obj.number|add:'-3' and n < page_obj.number|add:'3' %}
+                    <a href="?page={{ n }}#list_complaint">{{ n }}</a>
+                    {% endif %}
+                    {% endfor %}
+                </span>
+                {% if page_obj.has_next %}
+                <a class="pagination-older" href="?page={{ page_obj.next_page_number }}#list_complaint">NEXT</a>
+                {% endif %}
+            </div>
+        </nav>
+        {% endif %}
+
+    </section>
+    <!-- End Card With Navigation -->
+</main><!-- End #main -->
+
+{% endblock %}

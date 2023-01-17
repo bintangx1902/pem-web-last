@@ -1,0 +1,237 @@
+{% extends 'base_.html' %}
+
+{% block title %} Detail - {{ com.title }} {% endblock %}
+
+{% block content %}
+
+{% include 'company/open-job-modal.html' %}
+<h1 class="h3 mb-4 text-gray-800">List Complaint</h1>
+<br>
+
+<div class="container my-5">
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="title">{{ com.title }}</h5>
+            <p class="card-text">Alamat : {{ com.address }}</p>
+            <p class="card-text">Di buat pada : {{ com.created | date:'l, F js o - h:iA' }}</p>
+            <div class="card-text">
+                {{ com.messages }}
+                <hr>
+                <a href="{% url 'comp:accept-ticket' com.ticket_code %}"
+                   {% if not com.accepted %}
+                   class="btn btn-primary"
+                   {% else %}
+                   class="btn btn-primary disabled"
+                   {% endif %}
+                >Accept</a>
+
+                <a href="{% url 'comp:reject-ticket' com.ticket_code %}" class="btn btn-outline-danger">Reject</a>
+                <form action="{% url 'comp:close-complaint' com.ticket_code %}" method="post"
+                      enctype="multipart/form-data" class="mt-3">
+                    {% csrf_token %}
+                    <button class="btn btn-outline-success">Close This Complaint</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {% if request.user.is_staff and request.user.user.is_employee %}
+    <div class="card">
+        <div class="card-body">
+
+            <h6>Pengadu / Complainant</h6>
+            <p>username : {{ com.complain }}</p>
+            <p>Nama Lengkap : {{ com.complain.first_name }} {{ com.complain.last_name }} </p>
+            <p>nik : {{ com.complain.user.get_nik }}</p>
+            <p><a href="https://wa.me/{{ com.complain.user.wa_number }}" target="_blank"
+                  class="btn btn-outline-success">Whatsapp</a></p>
+            {% if com.accepted %}
+            <hr>
+            <!--proof-->
+            {% if proof %}
+            <h5 class="card-title">Bukti Lapangan</h5>
+            {% for item in proof %}
+
+            {% endfor %}
+            {% else %}
+            <form action="{% url 'comp:open-job' com.ticket_code %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    {% if not com.is_open %}
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"> Open
+                        as Job
+                    </button>
+                    {% else %}
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                            disabled> Open as Job
+                    </button>
+                    {% endif %}
+                </div>
+            </form>
+            {% if com.job_report.all %}
+            <h4 class="card-title">Laporan Lapangan</h4>
+            {% for report in com.job_report.all %}
+            <img src="{{ report.file.url }}" alt="Laporan Lapangan {{ forloop.counter }}" class="img-fluid h-25 w-25">
+            <div class="card-title">{{ report.case | safe }}</div>
+            {% endfor %}
+            {% else %}
+            <h4 class="card-title">Belum Ada Bukti dari Teknisi</h4>
+            {% endif %}
+            {% endif %}
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+</div>
+
+
+<h1 class="h3 mb-2 text-gray-800">Customer Service</h1>
+<p class="mb-4">Accept/Reject Request, <a href="#idTable" style="text-decoration: none;">See
+    Below</a>.</p>
+
+<div class="row mt-5 justify-content-center">
+    <div class="col-sm-10 pt-2 mb-4">
+
+        <!-- Card 1 -->
+        <div class="card">
+            <div class="card-body text-dark">
+                <h3 class="card-title">{{ com.title }}</h3>
+
+                <div class="pt-2 mb-2">
+                    Alamat : {{ com.address }}
+                </div>
+
+                <div class="pt-2 mb-2">
+                    {{ com.messages | safe }}
+                </div>
+                <hr>
+
+                <a href="{% url 'comp:accept-ticket' com.ticket_code %}"
+                   {% if not com.accepted %}
+                   class="btn btn-primary mt-2"
+                   {% else %}
+                   class="btn btn-primary mt-2 disabled"
+                   {% endif %}
+                >Accept</a>
+
+                {% if not com.rejected %}
+                <a class="btn btn-danger mt-2" href="{% url 'comp:reject-ticket' com.ticket_code %}">Reject</a>
+                {% else %}
+                <a class="btn btn-danger mt-2" href="{% url 'comp:reject-ticket' com.ticket_code %}">Reject</a>
+                {% endif %}
+
+                <form action="{% url 'comp:close-complaint' com.ticket_code %}" method="post"
+                      enctype="multipart/form-data" class="mt-3">
+                    {% csrf_token %}
+                    <button class="btn btn-outline-success mt-2">Close This Complaint</button>
+                </form>
+
+            </div>
+        </div>
+        <!-- End Card -->
+
+        <!-- Card 2 -->
+        <div class="card mt-5">
+            <div class="card-body text-dark">
+                <h3 class="card-title">Pengadu/Compliant
+                </h3>
+
+                <div class="pt-2 mb-2">
+                    <div class="">
+                        <p>
+                            username: {{ com.complain.username }}
+                        </p>
+                    </div>
+
+                    <div class="">
+                        <p>
+                            Nama Lengkap: {{ com.complain.first_name }} {{ com.complain.last_name }}
+                        </p>
+                    </div>
+
+                    <div class="">
+                        <p>
+                            {{ com.complain.user.get_nik }}
+                        </p>
+                    </div>
+                </div>
+                <hr>
+
+                <a class="btn btn-outline-success mt-2" href="#">Whatsapp</a>
+
+                <!-- Button trigger modal -->
+                {% if not com.is_open %}
+                <button type="button" class="btn btn-primary mt-2" data-toggle="modal"
+                        data-target="#exampleModal">Open As Job
+                </button>
+                {% else %}
+                <button type="button" class="btn btn-primary mt-2" data-toggle="modal"
+                        data-target="#exampleModal" disabled>Open As Job
+                </button>
+                {% endif %}
+
+                {% if com.accepted and not com.is_done %}
+                {% if proof %}
+                <hr>
+                <div class="card-header bg-transparent" style="max-height: 35em; scroll-behavior: smooth; overflow-y: scroll">
+                    <h4 class="card-title">Bukti Lapangan</h4>
+
+                    {% for item in proof %}
+                    <img src="{{ item.file.url }}" alt="Laporan Lapangan {{ forloop.counter }}"
+                         class="img-fluid h-25 w-25">
+                    <div class="card-title">{{ item.case | safe }}</div>
+                    <hr>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <hr>
+                <div class="card-header bg-transparent">
+                    <h4 class="card-title">Belum Ada Bukti lapangan</h4>
+                </div>
+                {% endif %}
+                {% endif %}
+
+            </div>
+        </div>
+        <!-- End Card 2 -->
+
+
+        <!-- Card 3 -->
+        <div class="card mt-4">
+            <div class="card-body text-dark">
+                <div class="card-header bg-transparent">
+                    <h3 class="card-title">Teknisi Yang Akan Datang</h3>
+                </div>
+
+                {% for item in com.job.all %}
+
+                <div class="pt-2 mb-2">
+                    <div class="">
+                        <p>Admin3</p>
+                    </div>
+
+                    <div class="">
+                        <p>{{ item.user.user.wa_number }}</p>
+                    </div>
+
+                    <div class="">
+                        <p>{{ item.user.first_name }} {{ item.user.last_name }}</p>
+                    </div>
+
+                    <div class="">
+                        <p>{{ item.user.email }}</p>
+                    </div>
+                </div>
+                <hr>
+
+                <a class="btn btn-outline-success mt-2" href="#">Whatsapp</a>
+                {% endfor %}
+
+
+            </div>
+        </div>
+        <!-- End Card -->
+    </div>
+</div>
+{% endblock %}
