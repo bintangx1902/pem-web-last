@@ -13,7 +13,9 @@ from .utils import *
 import stripe
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
-stripe_id = ""
+
+
+# stripe_id = ""
 
 
 def landing(request):
@@ -74,9 +76,10 @@ class MyComplaintList(ListView):
 
     def get_queryset(self):
         q = self.request.GET.get('q')
-        query = self.model.objects.filter(complain=self.request.user) if q is None else \
-            self.model.objects.filter(__(title__icontains=q) | __(messages__icontains=q))
-        return query
+        query = self.model.objects.filter(complain=self.request.user) if not q else \
+            self.model.objects.filter(__(title__icontains=q) | __(messages__icontains=q)).filter(
+                complain=self.request.user)
+        return query.order_by('-created')
 
     @method_decorator(login_required(login_url=settings.LOGIN_URL))
     @method_decorator(
@@ -101,7 +104,13 @@ class MyComplaint(DetailView):
         return context
 
     @method_decorator(login_required(login_url=settings.LOGIN_URL))
+    @method_decorator(
+        user_passes_test(lambda u: u.is_active and (u.user.nik is not None if hasattr(u, 'user') else False),
+                         '/accounts/profile'))
     def dispatch(self, request, *args, **kwargs):
+        instance = get_object_or_404(Complaint, ticket_code=self.kwargs['ticket_code'])
+        if not instance.complain == self.request.user:
+            return HttpResponse(status=status.HTTP_405_METHOD_NOT_ALLOWED)
         return super(MyComplaint, self).dispatch(request, *args, **kwargs)
 
 
@@ -164,8 +173,8 @@ class CheckoutView(View):
                 },
             ],
             mode='payment',
-            success_url = f"http://{host}{reverse('client:payment-success', kwargs={'ticket_code': item.ticket_code})}",
-            cancel_url = f"http://{host}{reverse('client:payment-cancel', kwargs={'ticket_code': item.ticket_code})}"
+            success_url=f"http://{host}{reverse('client:payment-success', kwargs={'ticket_code': item.ticket_code})}",
+            cancel_url=f"http://{host}{reverse('client:payment-cancel', kwargs={'ticket_code': item.ticket_code})}"
         )
         # return JsonResponse({
         #     'id': checkout_session.id
@@ -180,6 +189,8 @@ class PaymentSuccessView(View):
         global stripe_id
         item = get_object_or_404(Complaint, ticket_code=kwargs['ticket_code'])
         item.stripe_id = stripe_id
+        stripe_id = ''
+        item.is_success = True
         item.save()
         return render(self.request, get_template('payment-success'))
 
@@ -196,6 +207,7 @@ class CancelPaymentView(View):
         global stripe_id
         item = get_object_or_404(Complaint, ticket_code=kwargs['ticket_code'])
         item.stripe_id = stripe_id
+        stripe_id = ''
         item.save()
         return render(self.request, get_template('payment-cancel'))
 

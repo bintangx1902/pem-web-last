@@ -31,6 +31,7 @@ class Complaint(models.Model):
     needed_tools = models.ManyToManyField(Tools, null=True, blank=True)
     ticket_code = models.CharField(max_length=32)
     stripe_id = models.CharField(max_length=255, null=True, blank=True)
+    is_success = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

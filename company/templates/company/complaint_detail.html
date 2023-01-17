@@ -29,7 +29,11 @@
                 <form action="{% url 'comp:close-complaint' com.ticket_code %}" method="post"
                       enctype="multipart/form-data" class="mt-3">
                     {% csrf_token %}
+                    {% if not com.is_done %}
                     <button class="btn btn-outline-success">Close This Complaint</button>
+                    {% else %}
+                    <button class="btn btn-outline-success" disabled>Close This Complaint</button>
+                    {% endif %}
                 </form>
             </div>
         </div>
@@ -48,22 +52,16 @@
             {% if com.accepted %}
             <hr>
             <!--proof-->
-            {% if proof %}
-            <h5 class="card-title">Bukti Lapangan</h5>
-            {% for item in proof %}
-
-            {% endfor %}
-            {% else %}
             <form action="{% url 'comp:open-job' com.ticket_code %}" method="post">
                 {% csrf_token %}
                 <div class="form-group">
-                    {% if not com.is_open %}
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"> Open
-                        as Job
+                    {% if com.is_open %}
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" disabled>
+                        Open as Job
                     </button>
                     {% else %}
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                            disabled> Open as Job
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        Open as Job
                     </button>
                     {% endif %}
                 </div>
@@ -76,7 +74,6 @@
             {% endfor %}
             {% else %}
             <h4 class="card-title">Belum Ada Bukti dari Teknisi</h4>
-            {% endif %}
             {% endif %}
             {% endif %}
         </div>
