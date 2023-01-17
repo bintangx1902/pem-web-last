@@ -51,7 +51,15 @@ INSTALLED_APPS = [
 
     'client_side',
     'company',
+    'clearcache'
 ]
+
+CACHES = {
+   'default': {
+      'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+      'LOCATION': path.join(BASE_DIR, 'caches'),
+   }
+}
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 SITE_ID = int(config('SITE_ID'))
