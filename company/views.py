@@ -277,9 +277,10 @@ class SeeMyJob(ListView):
     model = TechnicianJob
     context_object_name = 'items'
     template_name = get_tech_template('list_complaint')
+    paginate_by = 6
 
     def get_queryset(self):
-        return self.model.objects.filter(user=self.request.user, job__is_done=False)
+        return self.model.objects.filter(user=self.request.user, job__is_done=False).order_by('-id')
 
     @method_decorator(login_required(login_url=settings.LOGIN_URL))
     @method_decorator(
