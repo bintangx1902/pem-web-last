@@ -119,6 +119,8 @@ class CloseThisComplaint(View):
         complaint = get_object_or_404(Complaint, ticket_code=self.kwargs['ticket_code'])
         tech_price = complaint.tech_price * len(complaint.job.all())
         complaint.total_price = complaint.ground_price + complaint.stock_price + tech_price
+        complaint.accepted = True
+        complaint.is_open = False
         complaint.is_done = True
         complaint.save()
         return redirect(reverse('comp:complaint-detail', args=[self.kwargs['ticket_code']]))
@@ -280,7 +282,7 @@ class SeeMyJob(ListView):
     paginate_by = 6
 
     def get_queryset(self):
-        return self.model.objects.filter(user=self.request.user, job__is_done=False).order_by('-id')
+            return self.model.objects.filter(user=self.request.user, job__is_done=False).order_by('-id')
 
     @method_decorator(login_required(login_url=settings.LOGIN_URL))
     @method_decorator(

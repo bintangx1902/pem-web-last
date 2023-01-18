@@ -21,7 +21,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ item.job.title }}</h5>
                     <p class="card-text">{{ item.job.get_message }}</p>
-                    <a href="{% url 'comp:complaint-detail' item.job.ticket_code %}" class="btn btn-primary">Read Detail</a>
+                    <a href="{% url 'comp:job-detail' item.job.ticket_code %}" class="btn btn-primary">Read Detail</a>
                 </div>
             </div>
         </div>

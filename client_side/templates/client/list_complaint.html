@@ -46,11 +46,14 @@
                         {{ item.get_messages }}
                     </div>
                     {% if item.is_done and item.total_price %}
+                    {% if not item.is_success %}
                     <div class="card-text">
                         <div class="row">
                             <div class="col-4 alert-success rounded">Perlu Di bayar</div>
                         </div>
                     </div>
+                    {% endif %}
+                    {% else %}
                     {% endif %}
                     <a href="{% url 'client:my-complaint' item.ticket_code %}" class="btn btn-warning mt-3">Read Detail</a>
                 </div>
