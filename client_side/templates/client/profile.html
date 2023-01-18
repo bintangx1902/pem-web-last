@@ -3,15 +3,39 @@
 {% block title %} My Profile {% endblock %}
 
 {% block content %}
-<div class="container my-5">
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {% load crispy_forms_tags %}
-        {{ form | crispy }}
-        {{ u_form | crispy }}
-        <div class="form-group">
-            <button class="btn btn-primary"> Save</button>
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex align-items-center justify-content-center">
+    <div class="container" data-aos="fade-up">
+        <div class="row mx-auto justify-content-center" data-aos="fade-up" data-aos-delay="150">
+            <div class="col-xl-6 col-lg-8">
+                <h1>Profile<span></span></h1>
+                <h2>
+                    See Your Profile Details <a href="#profile">Below</a></h2>
+            </div>
         </div>
-    </form>
+
+    </div>
+</section>
+<!-- End Hero -->
+
+<div class="container my-5" id="profile">
+    <div class="card">
+        <div class="card-header">
+        <div class="card-body">
+            <h3 class="card-title">Client Profile</h3>
+            <hr>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% load crispy_forms_tags %}
+                {{ form | crispy }}
+                {{ u_form | crispy }}
+                <div class="form-group text-right">
+                    <button class="btn btn-success"> Save</button>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
