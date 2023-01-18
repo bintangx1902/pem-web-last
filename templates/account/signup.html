@@ -16,11 +16,11 @@
                     <li class="form-control alert-{{ msg.tags }}">{{ msg }}</li>
                     {% endfor %}
                 </ul>
-                <a href="{{ account_login }}" class="fxt-logo"><img src="{% static 'login_assets/img/logo-27.png' %}"
-                                                                    alt="Logo"></a>
+                <a href="{% url 'account_login' %}" class="fxt-logo  border border-3 border-warning rounded-3"><img
+                        src="{% static 'login_assets/img/LOGOHS.png' %}" alt="Logo"></a>
                 <div class="fxt-page-switcher">
-                    <a href="{{ account_login }}" class="switcher-text1">Log In</a>
-                    <a href="{{ account_signup }}" class="switcher-text1 active">Register</a>
+                    <a href="{% url 'account_login' %}" class="switcher-text1 active">Log In</a>
+                    <a href="{% url 'account_signup' %}" class="switcher-text1">Register</a>
                 </div>
             </div>
             <div class="fxt-form">

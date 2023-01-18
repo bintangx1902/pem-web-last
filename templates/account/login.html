@@ -11,10 +11,10 @@
     <div class="col-md-6 col-12 fxt-bg-color">
         <div class="fxt-content">
             <div class="fxt-header">
-                <a href="{{ account_login }}" class="fxt-logo  border border-3 border-warning rounded-3"><img
+                <a href="{% url 'account_login' %}" class="fxt-logo  border border-3 border-warning rounded-3"><img
                         src="{% static 'login_assets/img/LOGOHS.png' %}" alt="Logo"></a>
                 <div class="fxt-page-switcher">
-                    <a href="{{ account_login }}" class="switcher-text1 active">Log In</a>
+                    <a href="{% url 'account_login' %}" class="switcher-text1 active">Log In</a>
                     <a href="{% url 'account_signup' %}" class="switcher-text1">Register</a>
                 </div>
             </div>
